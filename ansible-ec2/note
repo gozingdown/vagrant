@@ -1,0 +1,49 @@
+==I==
+For error like this:
+
+GATHERING FACTS ***************************************************************
+
+▽
+  connection: local
+The authenticity of host '54.174.224.100 (54.174.224.100)' can't be established.
+ECDSA key fingerprint is 51:22:c5:80:d2:7f:49:0b:19:9c:c7:72:72:dc:e2:f8.
+Are you sure you want to continue connecting (yes/no)? yes
+failed: [54.174.224.100] => {"failed": true, "parsed": false}
+invalid output was: SUDO-SUCCESS-wtbpavcrrpuhricvtpwkargovmuqohfd
+/bin/sh: 1: /usr/bin/python: not found
+
+
+PLAY [webservers] *************************************************************
+
+GATHERING FACTS ***************************************************************
+FATAL: no hosts matched or all hosts have already failed -- aborting
+
+
+TASK: [install nginx] *********************************************************
+FATAL: no hosts matched or all hosts have already failed -- aborting
+
+
+PLAY RECAP ********************************************************************
+           to retry, use: --limit @/home/vagrant/ec2.retry
+
+127.0.0.1                  : ok=3    changed=1    unreachable=0    failed=0
+54.174.224.100             : ok=0    changed=0    unreachable=0    failed=1
+
+
+See this:
+
+http://stackoverflow.com/questions/32429259/ansible-fails-with-bin-sh-1-usr-bin-python-not-found
+
+
+
+
+
+==II==
+
+For error like this;
+
+vagrant@ansible:~$ ansible-playbook -i hosts ec2.yml
+ERROR: problem running /home/vagrant/hosts --list ([Errno 8] Exec format error)
+
+
+http://stackoverflow.com/questions/18385925/error-when-running-ansible-playbook
